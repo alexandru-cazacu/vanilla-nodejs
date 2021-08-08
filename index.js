@@ -6,6 +6,8 @@ const url = require("url");
 const StringDecoder = require("string_decoder").StringDecoder;
 const config = require("./config");
 const fs = require("fs");
+const handlers = require("./lib/handlers");
+const helpers = require("./lib/helpers");
 
 /**
  * HTTP
@@ -52,7 +54,7 @@ const unifiedServer = (req, res) => {
   const queryStringObject = parsedUrl.query;
 
   // Method
-  const method = req.method.toLocaleUpperCase();
+  const method = req.method.toLowerCase();
 
   // Headers
   const headers = req.headers;
@@ -78,7 +80,7 @@ const unifiedServer = (req, res) => {
       queryStringObject: queryStringObject,
       method: method,
       headers: headers,
-      payload: buffer,
+      payload: helpers.parseJsonToObject(buffer),
     };
 
     chosenHandler(data, (statusCode, paylaod) => {
@@ -104,16 +106,7 @@ const unifiedServer = (req, res) => {
   });
 };
 
-const handlers = {};
-
-handlers.ping = (data, callback) => {
-  callback(200);
-};
-
-handlers.notFound = (data, callback) => {
-  callback(404);
-};
-
 const router = {
   ping: handlers.ping,
+  users: handlers.users,
 };
