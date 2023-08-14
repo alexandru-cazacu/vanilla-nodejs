@@ -10,6 +10,7 @@ environments.staging = {
   httpsPort: 3001,
   envName: "staging",
   hashingSecret: "superSecret",
+  maxChecks: 5,
 };
 
 environments.production = {
@@ -17,6 +18,7 @@ environments.production = {
   httpsPort: 5001,
   envName: "production",
   hashingSecret: "superSecret",
+  maxChecks: 5,
 };
 
 const currEnv =

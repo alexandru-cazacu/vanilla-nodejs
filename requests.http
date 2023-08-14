@@ -1,0 +1,70 @@
+GET https://localhost:3000/ping
+
+###
+
+GET http://localhost:3000/users?phone=0000000000
+content-type: application/json
+token: sccp699gepi31je37toi
+
+###
+
+POST http://localhost:3000/users
+content-type: application/json
+
+{
+    "firstName": "aaa",
+    "lastName": "aaa",
+    "phone": "0000000000",
+    "password": "password",
+    "tosAgreement": true
+}
+
+###
+
+GET http://localhost:3000/checks
+
+###
+
+GET http://localhost:3000/tokens
+
+###
+
+POST http://localhost:3000/tokens
+content-type: application/json
+
+{
+    "phone": "0000000000",
+    "password": "password"
+}
+
+###
+
+GET http://localhost:3000/tokens?id=a4dz7eae839s7dvppfpw
+
+###
+
+PUT http://localhost:3000/tokens
+content-type: application/json
+
+{
+    "id": "a4dz7eae839s7dvppfpw",
+    "extend": true
+}
+
+###
+
+DELETE http://localhost:3000/tokens?id=a4dz7eae839s7dvppfpw
+
+###
+
+POST http://localhost:3000/checks
+content-type: application/json
+token: 8huc5a3eexjxf64azmb7
+
+{
+    "protocol": "http",
+    "url": "google.com",
+    "method": "get",
+    "successCodes": [200, 201],
+    "timeoutSeconds": 3
+}

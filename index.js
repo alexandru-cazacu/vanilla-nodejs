@@ -18,7 +18,7 @@ const httpServer = http.createServer((req, res) => {
 
 httpServer.listen(config.httpPort, () => {
   console.log(
-    `The server is listening on port ${config.httpPort} in ${config.envName} mode...`
+    `Server listening on port ${config.httpPort} in ${config.envName} mode...`
   );
 });
 
@@ -36,7 +36,7 @@ const httpsServer = https.createServer(httpsServerOptions, (req, res) => {
 
 httpsServer.listen(config.httpsPort, () => {
   console.log(
-    `The server is listening on port ${config.httpsPort} in ${config.envName} mode...`
+    `Server listening on port ${config.httpsPort} in ${config.envName} mode...`
   );
 });
 
@@ -44,9 +44,9 @@ httpsServer.listen(config.httpsPort, () => {
  * HTTP/HTTPS
  */
 const unifiedServer = (req, res) => {
-  // Path
-  // TODO(Alex): Use non deprecated API
   const parsedUrl = url.parse(req.url, true);
+
+  // Path
   const path = parsedUrl.pathname;
   const trimmedPath = path.replace(/^\/+|\/+$/g, "");
 
@@ -110,4 +110,5 @@ const router = {
   ping: handlers.ping,
   users: handlers.users,
   tokens: handlers.tokens,
+  checks: handlers.checks,
 };
