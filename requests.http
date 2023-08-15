@@ -21,6 +21,11 @@ content-type: application/json
 
 ###
 
+DELETE http://localhost:3000/users?phone=0000000000
+token: hert66bvtzo5f07bcguv
+
+###
+
 GET http://localhost:3000/checks
 
 ###
@@ -59,7 +64,7 @@ DELETE http://localhost:3000/tokens?id=a4dz7eae839s7dvppfpw
 
 POST http://localhost:3000/checks
 content-type: application/json
-token: 8huc5a3eexjxf64azmb7
+token: hert66bvtzo5f07bcguv
 
 {
     "protocol": "http",
@@ -68,3 +73,30 @@ token: 8huc5a3eexjxf64azmb7
     "successCodes": [200, 201],
     "timeoutSeconds": 3
 }
+
+###
+
+GET http://localhost:3000/checks?id=v4qfqtgz5crhcpd3ks0s
+content-type: application/json
+token: hert66bvtzo5f07bcguv
+
+###
+
+PUT http://localhost:3000/checks
+content-type: application/json
+token: hert66bvtzo5f07bcguv
+
+{
+    "id": "v4qfqtgz5crhcpd3ks0s",
+    "protocol": "http",
+    "url": "google.com",
+    "method": "get",
+    "successCodes": [200, 201],
+    "timeoutSeconds": 3
+}
+
+###
+
+DELETE http://localhost:3000/checks?id=v4qfqtgz5crhcpd3ks0s
+content-type: application/json
+token: hert66bvtzo5f07bcguv
