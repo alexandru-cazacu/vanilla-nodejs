@@ -1,22 +1,22 @@
+// @ts-check
+
 /*
  * Primary file for API
- *
  */
 
 // Dependencies
-var server = require('./lib/server');
-var workers = require('./lib/workers');
-var cli = require('./lib/cli');
+const server = require("./lib/server");
+const workers = require("./lib/workers");
+const cli = require("./lib/cli");
 
 // Declare the app
-var app = {};
+const app = {};
 
 // Declaring a global (strict should catch this mistake)
-foo = 'bar';
+foo = "bar";
 
 // Init function
-app.init = function(){
-
+app.init = () => {
   // Start the server
   server.init();
 
@@ -24,15 +24,13 @@ app.init = function(){
   workers.init();
 
   // Start the CLI, but make sure it starts last
-  setTimeout(function(){
+  setTimeout(() => {
     cli.init();
-  },50);
-
+  }, 50);
 };
 
 // Self executing
 app.init();
-
 
 // Export the app
 module.exports = app;

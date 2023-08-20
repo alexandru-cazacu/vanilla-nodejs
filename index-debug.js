@@ -1,20 +1,20 @@
+// @ts-check
+
 /*
  * Primary file for API
- *
  */
 
 // Dependencies
-var server = require('./lib/server');
-var workers = require('./lib/workers');
-var exampleDebuggingProblem = require('./lib/exampleDebuggingProblem');
-var cli = require('./lib/cli');
+const server = require("./lib/server");
+const workers = require("./lib/workers");
+const exampleDebuggingProblem = require("./lib/exampleDebuggingProblem");
+const cli = require("./lib/cli");
 
 // Declare the app
-var app = {};
+const app = {};
 
 // Init function
-app.init = function(){
-
+app.init = () => {
   // Start the server
   debugger;
   server.init();
@@ -27,16 +27,16 @@ app.init = function(){
 
   // Start the CLI, but make sure it starts last
   debugger;
-  setTimeout(function(){
+  setTimeout(() => {
     cli.init();
     debugger;
-  },50);
+  }, 50);
   debugger;
 
   // Start an example script that has issues (throws an error)
   debugger;
   // Set foo at 1
-  var foo = 1;
+  let foo = 1;
   console.log("Just assigned 1 to foo");
   debugger;
 
@@ -58,12 +58,10 @@ app.init = function(){
   // Call the init script that will throw
   exampleDebuggingProblem.init();
   debugger;
-
 };
 
 // Self executing
 app.init();
-
 
 // Export the app
 module.exports = app;
