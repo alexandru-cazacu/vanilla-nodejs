@@ -1,4 +1,4 @@
-GET http://localhost:3000/ping
+GET http://localhost:3000/api/ping
 
 ###
 
@@ -6,13 +6,13 @@ GET http://localhost:3000/examples/error
 
 ###
 
-GET http://localhost:3000/users?phone=0000000000
+GET http://localhost:3000/api/users?phone=0000000000
 content-type: application/json
 token: sccp699gepi31je37toi
 
 ###
 
-POST http://localhost:3000/users
+POST http://localhost:3000/api/users
 content-type: application/json
 
 {
@@ -25,20 +25,20 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:3000/users?phone=0000000000
+DELETE http://localhost:3000/api/users?phone=0000000000
 token: 30vaw5m1yoc3dnbjso7s\
 
 ###
 
-GET http://localhost:3000/checks
+GET http://localhost:3000/api/checks
 
 ###
 
-GET http://localhost:3000/tokens
+GET http://localhost:3000/api/tokens
 
 ###
 
-POST http://localhost:3000/tokens
+POST http://localhost:3000/api/tokens
 content-type: application/json
 
 {
@@ -48,11 +48,11 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3000/tokens?id=a4dz7eae839s7dvppfpw
+GET http://localhost:3000/api/tokens?id=a4dz7eae839s7dvppfpw
 
 ###
 
-PUT http://localhost:3000/tokens
+PUT http://localhost:3000/api/tokens
 content-type: application/json
 
 {
@@ -62,11 +62,11 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:3000/tokens?id=a4dz7eae839s7dvppfpw
+DELETE http://localhost:3000/api/tokens?id=a4dz7eae839s7dvppfpw
 
 ###
 
-POST http://localhost:3000/checks
+POST http://localhost:3000/api/checks
 content-type: application/json
 token: 30vaw5m1yoc3dnbjso7s\
 
@@ -80,13 +80,13 @@ token: 30vaw5m1yoc3dnbjso7s\
 
 ###
 
-GET http://localhost:3000/checks?id=v4qfqtgz5crhcpd3ks0s
+GET http://localhost:3000/api/checks?id=v4qfqtgz5crhcpd3ks0s
 content-type: application/json
 token: 30vaw5m1yoc3dnbjso7s\
 
 ###
 
-PUT http://localhost:3000/checks
+PUT http://localhost:3000/api/checks
 content-type: application/json
 token: 30vaw5m1yoc3dnbjso7s\
 
@@ -101,6 +101,6 @@ token: 30vaw5m1yoc3dnbjso7s\
 
 ###
 
-DELETE http://localhost:3000/checks?id=v4qfqtgz5crhcpd3ks0s
+DELETE http://localhost:3000/api/checks?id=v4qfqtgz5crhcpd3ks0s
 content-type: application/json
 token: 30vaw5m1yoc3dnbjso7s\
