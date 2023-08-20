@@ -2,6 +2,10 @@ GET http://localhost:3000/ping
 
 ###
 
+GET http://localhost:3000/examples/error
+
+###
+
 GET http://localhost:3000/users?phone=0000000000
 content-type: application/json
 token: sccp699gepi31je37toi
@@ -22,7 +26,7 @@ content-type: application/json
 ###
 
 DELETE http://localhost:3000/users?phone=0000000000
-token: 30vaw5m1yoc3dnbjso7s
+token: 30vaw5m1yoc3dnbjso7s\
 
 ###
 
@@ -64,7 +68,7 @@ DELETE http://localhost:3000/tokens?id=a4dz7eae839s7dvppfpw
 
 POST http://localhost:3000/checks
 content-type: application/json
-token: 30vaw5m1yoc3dnbjso7s
+token: 30vaw5m1yoc3dnbjso7s\
 
 {
     "protocol": "http",
@@ -78,13 +82,13 @@ token: 30vaw5m1yoc3dnbjso7s
 
 GET http://localhost:3000/checks?id=v4qfqtgz5crhcpd3ks0s
 content-type: application/json
-token: 30vaw5m1yoc3dnbjso7s
+token: 30vaw5m1yoc3dnbjso7s\
 
 ###
 
 PUT http://localhost:3000/checks
 content-type: application/json
-token: 30vaw5m1yoc3dnbjso7s
+token: 30vaw5m1yoc3dnbjso7s\
 
 {
     "id": "v4qfqtgz5crhcpd3ks0s",
@@ -99,4 +103,4 @@ token: 30vaw5m1yoc3dnbjso7s
 
 DELETE http://localhost:3000/checks?id=v4qfqtgz5crhcpd3ks0s
 content-type: application/json
-token: 30vaw5m1yoc3dnbjso7s
+token: 30vaw5m1yoc3dnbjso7s\
