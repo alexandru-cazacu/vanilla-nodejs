@@ -107,7 +107,10 @@ app.bindLogoutButton = function () {
 };
 
 // Log the user out then redirect them
-app.logUserOut = function () {
+app.logUserOut = function (redirectUser) {
+  // Set redirectUser to default to true
+  redirectUser = typeof redirectUser === "boolean" ? redirectUser : true;
+
   // Get the current token id
   let tokenId =
     typeof app.config.sessionToken.id === "string"
@@ -129,7 +132,9 @@ app.logUserOut = function () {
       app.setSessionToken(false);
 
       // Send the user to the logged out page
-      window.location = "/session/deleted";
+      if (redirectUser) {
+        window.location = "/session/deleted";
+      }
     }
   );
 };
@@ -173,12 +178,15 @@ app.bindForms = function () {
           }
         }
 
+        // If the method is DELETE, the payload should be a queryStringObject instead
+        let queryStringObject = method === "DELETE" ? payload : {};
+
         // Call the API
         app.client.request(
           undefined,
           path,
           method,
-          undefined,
+          queryStringObject,
           payload,
           function (statusCode, responsePayload) {
             // Display an error on the form if needed
@@ -259,6 +267,12 @@ app.formResponseProcessor = function (formId, requestPayload, responsePayload) {
   if (formsWithSuccessMessages.indexOf(formId) > -1) {
     document.querySelector("#" + formId + " .formSuccess").style.display =
       "block";
+  }
+
+  // If the user just deleted their account, redirect them to the account-delete page
+  if (formId === "accountEdit3") {
+    app.logUserOut(false);
+    window.location = "/account/deleted";
   }
 };
 
@@ -359,8 +373,7 @@ app.renewToken = function (callback) {
 app.loadDataOnPage = function () {
   // Get the current page from the body class
   let bodyClasses = document.querySelector("body").classList;
-  let primaryClass =
-    typeof bodyClasses[0] === "string" ? bodyClasses[0] : false;
+  let primaryClass = typeof bodyClasses[0] === "string" ? bodyClasses[0] : false;
 
   // Logic for account settings page
   if (primaryClass === "accountEdit") {
